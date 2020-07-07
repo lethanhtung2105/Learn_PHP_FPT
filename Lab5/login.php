@@ -4,6 +4,8 @@ $conn=new mysqli($hn,$un,$pw,$db);
 if ($conn->connect_error) die("Fatal Error");
 mysqli_select_db($conn,$db);
 
+
+//cảnh báo đăng nhập
 if (isset($_POST['login'])){
     if($_POST['username']==null){
         echo "Moi ban nhap tai khoan<BR>";
@@ -18,13 +20,15 @@ if (isset($_POST['login'])){
         $password=$_POST['password'];
     }
 
+    //check tài khoản
     $username=$_POST['username'];
     $password=$_POST['password'];
-
     $sql="select * from register where username='".$username."' AND password='".$password."'";
     $result=mysqli_query($conn,$sql);
     if(mysqli_num_rows($result)==1){
-        echo "Ban da dang nhap thanh cong";
+//        echo "Ban da dang nhap thanh cong";
+        header("Location: http://localhost/PHPMySQL/Lab5/register.php");
+//        die();
         exit();
     }
     else{

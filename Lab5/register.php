@@ -23,7 +23,7 @@ if (isset($_POST['userid']) && isset($_POST['username']) &&
     $phone=get_post($conn,'phone');
     $fullname=get_post($conn,'fullname');
 
-    $query="INSERT INTO register VALUES"."('$userid','$username','$password','$email','$phone','$fullname')";
+    $query="INSERT INTO register(username,password,email,phone,fullname) VALUES"."('$username','$password','$email','$phone','$fullname')";
     $result = $conn->query($query);
 
     if (!$result) echo "INSERT failed<BR><BR>";
@@ -31,9 +31,8 @@ if (isset($_POST['userid']) && isset($_POST['username']) &&
 
 //hiển thị người dùng
 echo <<<_END
+<h2>Wellcome</h2>
 <form action="register.php" method="post"><pre>
-
-      UserId <input type="text" name="userid">
       
     UserName <input type="text" name="username">
        

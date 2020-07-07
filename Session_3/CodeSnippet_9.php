@@ -9,3 +9,4 @@ $closure=function ($whom){
 $obj=new Greetings();
 $closure->call($obj,'John');
 $closure->call($obj,'Kevin');
+?>

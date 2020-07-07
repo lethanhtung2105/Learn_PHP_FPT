@@ -1,0 +1,28 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<body>
+<?php
+$server="localhost";
+$username="root";
+$password="";
+$db="publications";
+$connect_mysql=mysqli_connect($server,$username,$password,$db);
+if ($connect_mysql)
+    echo "Connection established";
+$mysql_db=mysqli_select_db($connect_mysql,$db);
+if ($mysql_db)
+    echo "<BR><BR>Connected to the database<BR><BR>";
+echo "TABLE BORDER BGCOLOR='While";
+echo "<TR><TH>User_ID<TH><TH>USER_NAME<TH><TH>USER_EMAIL_ID</TH>";
+    echo "<DBQUERY q> select * from user_contact";
+        echo "<DBROW><TR><TD><? q.USER_ID></TD><TD><? q.USER_NAME></TD><TD><? q.USER_EMAIL_ID></TD></TR>";
+echo "</DBQUERY>";
+echo "</TR>";
+echo "</TABLE>";
+?>
+</body>
+</html>
